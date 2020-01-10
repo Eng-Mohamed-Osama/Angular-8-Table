@@ -1,0 +1,41 @@
+<div class="col-lg-12 back">
+  <div class="form-row align-items-center col-lg-12">
+    <div class=" my-1 col-lg-12">
+      <select class="custom-select mr-sm-2" id="inlineFormCustomSelect" #select (click)='switchOrders(select)'> 
+        <option selected value="5">5</option>
+        <option value="6">6</option>
+        <option value="10">10</option>
+        <option value="15">15</option>
+      </select>
+      <div class="input-group mb-3 ">
+        <div class="input-group-prepend ">
+          <span class="input-group-text " id="basic-addon1">@</span>
+        </div>
+        <input type="text" #data (keyup)="searchNames(data)" class="form-control btn-warning" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1"  >
+      </div>
+      <table class="table table-striped col-lg-12 ">
+        <thead class="bg-dark text-light">
+            <th>id</th>
+            <th>name</th>
+            <th>age</th>
+            <th>address</th>
+            <th>salary</th>
+            <th>Salary modifier</th>
+            <th>Remove</th>
+            <th>Add</th>
+            <th>Reset Salary</th>
+        </thead>
+        <tbody>
+            <tr app-tableconstruction *ngFor="let s of student | filter:data.value | slice:startPoint:endPoint" [std] ='s'></tr>
+        </tbody>
+    </table>
+    <p *ngIf="show"  role="alert" class="alert alert-info btn-danger text-justify text-center">Sorry there are no search results !</p>
+    <nav aria-label="Page navigation example">
+        <ul class="pagination justify-content-center">
+        <li class="page-item" *ngFor="let item of convertArr(student.length/lengthRequired); let i = index"><a class="page-link" href="#" (click)= "paggingSystem((i*lengthRequired),((i+1)*lengthRequired))" >{{i+1}}</a></li>
+        </ul>
+    </nav>
+    </div>
+</div>
+  
+  

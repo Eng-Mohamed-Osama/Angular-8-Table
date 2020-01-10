@@ -1,0 +1,9 @@
+<td>{{std.id}}</td>
+<td>{{std.name}}</td>
+<td>{{std.age}}</td>
+<td>{{std.address}}</td>
+<td>{{std.salary | currency:'EUR'}}</td>
+<td><input type="text" #salaryamount class="form-control" placeholder="Type A number here ...."></td>
+<td><button (click)='modifiy2(salaryamount.value)' class="btn btn-danger">-</button></td>
+<td><button (click)='modifiy(salaryamount.value)' class="btn btn-primary">+</button></td>
+<td><button (click)='modifiy3(salaryamount)' class="btn btn-dark">Reset</button></td>
